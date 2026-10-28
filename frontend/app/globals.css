@@ -1438,22 +1438,73 @@ h1 span {
   margin: 4px 0 0;
 }
 
-.simulation-input {
+.simulation-input,
+.simulation-guidance {
   align-items: center;
   border: 1px dashed var(--blue-200, #c9dce7);
   border-radius: 10px;
   color: var(--neutral-400);
   display: flex;
   font-size: 0.85rem;
-  justify-content: space-between;
+  gap: 8px;
+  justify-content: flex-start;
   margin-top: 14px;
   min-height: 48px;
   padding: 10px 14px;
 }
 
-.simulation-input span {
+.simulation-input span,
+.simulation-guidance span {
   color: var(--blue-600, #4b7892);
   font-size: 1.1rem;
+}
+
+.carousel-controls,
+.carousel-dots {
+  align-items: center;
+  display: flex;
+}
+
+.carousel-controls {
+  justify-content: space-between;
+  padding: 12px 28px 18px;
+}
+
+.carousel-controls button {
+  align-items: center;
+  background: var(--white);
+  border: 1px solid var(--accent-200);
+  border-radius: 999px;
+  color: var(--accent-700);
+  cursor: pointer;
+  display: inline-flex;
+  font: inherit;
+  height: 36px;
+  justify-content: center;
+  min-width: 36px;
+}
+
+.carousel-controls button:focus-visible {
+  outline: 2px solid var(--accent-600);
+  outline-offset: 2px;
+}
+
+.carousel-dots {
+  gap: 7px;
+}
+
+.carousel-dots button {
+  background: var(--accent-200);
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+  height: 8px;
+  min-width: 8px;
+  padding: 0;
+}
+
+.carousel-dots button.is-active {
+  background: var(--accent-700);
 }
 
 .simulation-footer {
@@ -1518,6 +1569,7 @@ h1 span {
     gap: 10px;
   }
 
+  .preview-top,
   .simulation-body,
   .simulation-header {
     padding-left: 20px;
@@ -1654,13 +1706,19 @@ h1 span {
   padding: 0;
 }
 
-.hero-panel-top {
+.hero-panel-top,
+.preview-top {
+  align-items: center;
   background: var(--accent-50);
   border-bottom: 1px solid var(--accent-100);
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
   padding: 22px 32px 18px;
 }
 
-.hero-panel-top .panel-label {
+.hero-panel-top .panel-label,
+.preview-badge {
   align-items: center;
   color: var(--accent-700);
   display: flex;
@@ -1676,10 +1734,19 @@ h1 span {
   font-size: 1rem;
 }
 
-.panel-subtitle {
+.panel-subtitle,
+.preview-note {
   color: var(--accent-600);
   font-size: 0.78rem;
-  margin: 0;
+  line-height: 1.5;
+  margin: 6px 0 0;
+}
+
+.preview-count {
+  color: var(--accent-700);
+  flex: 0 0 auto;
+  font-size: 0.78rem;
+  font-weight: 600;
 }
 
 .hero-panel-body {
@@ -1754,6 +1821,7 @@ h1 span {
   }
 
   .hero-panel-top,
+  .preview-top,
   .hero-panel-body {
     padding-left: 24px;
     padding-right: 24px;
@@ -1761,6 +1829,12 @@ h1 span {
 }
 
 @media (max-width: 767px) {
+  .preview-top {
+    align-items: flex-start;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
   .hero::after {
     height: 220px;
     top: 380px;
